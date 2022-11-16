@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {db} from '../firebase'
-import {collection,getDocs} from 'firebase/firestore'
+import {collection,getDocs} from 'firebase/firestore';
 import { Link} from 'react-router-dom';
 import { doc, deleteDoc,} from "firebase/firestore";
 
@@ -8,7 +8,8 @@ import { doc, deleteDoc,} from "firebase/firestore";
 
 const Read = () => {
     const[creates,setCreates]=useState([]);
-    const[tabledark,setTableDark]=useState('');
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     
           useEffect( ()=>{
           console.log("fetchingData")
@@ -35,58 +36,37 @@ const Read = () => {
         
   return (
     <>
-    <div className='container mt-5'>
-    <div className="form-check form-switch">
-    <input className="form-check-input" type="checkbox"
-      onClick={()=>{
-        if(tabledark==='table-dark') setTableDark("")
-        else setTableDark("table-dark");
-      }}
-    />
-    </div>
-    <div className='d-flex justify-content-between'>
-    <div className='col-sm-10 fs-1'>Read Operation</div>
-    <div className='text241 col-sm-2 fs-1'>
-    <Link to="/create">
-    <button className='button7 bg-primary border-0'>Create Data</button>
-    </Link>
-    </div>
-    </div>
-      <table className={`table table-bordered mt-4 ${tabledark}`}>
-  <thead>
-    <tr>
-      <th className='text-white' scope="col">id</th>
-      <th  className='text-white' scope="col">Blog</th>
-      <th  className='text-white' scope="col">WriterName</th>
-      <th className='text-center text-white' scope="col">Update</th>
-      <th className='text-center text-white' scope="col">Delete</th>
-    </tr>
-  </thead>
-    {
-      creates && creates.map((x)=>{
-        return(
-          <>
-          <tbody>
-          <tr>
-          <th scope="row">{x.id}</th>
-          <th>{x.blog}</th>
-          <th>{x.writername}</th>
-          <th className='text-center'>
-          <Link to={`/update/${x.id}`}>
-          <button type="button" className="btn bg-success text-dark">Edit</button>
-          </Link>
-          </th>
-            <th className='text-center'><button 
+    {creates.length===0 ? (<p>No Blogs Fond</p>):(creates.map
+    ((create)=><div className='blog-cont' key={create.id}>
+     <div className='section1'>
+      <p className='title'>{create.tittle}</p>
+     </div>
+     <div className='section2'>
+      <p><img src={create.image} alt=""/>
+      {create.blog}
+      </p>
+     </div>
+     <div className='section3'>
+      <p>Posted on-{date}</p>
+      <p className='ms-2'>Posted by-{create.writername}</p>
+     </div>
+     <div className='section4'>
+     <Link to={`/update/${create.id}`}>
+          <button type="button" className="btn bg-success text-white">Edit</button>
+     </Link>
+     <button 
             type="button" 
-            class="btn bg-danger text-dark"
-            onClick={(e)=>handledelete(e,x.id)} 
-            >Delete</button></th>
-          </tr>
-        </tbody>
-         </>
-        )})}
-</table>
-</div>
+            class="btn bg-danger text-white ms-3"
+            onClick={(e)=>handledelete(e,create.id)} 
+            >Delete</button>
+    <Link to="/create">
+    <button
+     type='button' 
+     className='btn bg-primary text-white ms-3'>Create Data</button>
+    </Link>
+     </div>
+    </div> 
+    ))}
     </>
   )
 }
