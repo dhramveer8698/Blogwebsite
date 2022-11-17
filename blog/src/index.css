@@ -137,7 +137,7 @@ body{
 }
 .section2 img{
     width:40%;
-    height: fit-content;
+    height:100%;
     padding: 0px 10px;
 }
 .section2 p{
@@ -156,6 +156,13 @@ body{
 }
 .section4{
     text-align: center;
+}
+.text256{
+    font-size:45px;
+    font-weight: 600;
+    font-family: bold;
+    text-align: center;
+    color: #E20505;
 }
 
 

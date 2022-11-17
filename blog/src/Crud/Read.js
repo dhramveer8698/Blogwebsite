@@ -36,7 +36,13 @@ const Read = () => {
         
   return (
     <>
-    {creates.length===0 ? (<p>No Blogs Fond</p>):(creates.map
+    {creates.length===0 ? (<><p className='text256'>No Blogs Fond <span className='ms-3'> <Link to="/create">
+    <button
+     type='button' 
+     className='btn bg-primary text-white ms-3'>Create Data</button>
+    </Link></span></p>
+    </>
+    ):(creates.map
     ((create)=><div className='blog-cont' key={create.id}>
      <div className='section1'>
       <p className='title'>{create.tittle}</p>

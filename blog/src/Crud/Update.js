@@ -9,7 +9,7 @@ import {db} from '../firebase'
 const Update = () => {
      const [tittle, setTittle] = useState("");
      const[blog,setBlog]=useState("");
-     const [image, setImage] = useState("");
+     const [image,setImage] = useState("");
      const[writername,setWritername]=useState("");
      const { id:createId } = useParams();
      const navigate = useNavigate();
@@ -22,7 +22,9 @@ const Update = () => {
     try {
     const doc = await getDoc(docRef);
     console.log("Cached document data:", doc.data());
+    setTittle(doc.data().tittle)
     setBlog(doc.data().blog)
+    setImage(doc.data().image)
     setWritername(doc.data().writername)
     }catch (e) {
     console.log("Error getting cached document:", e);
@@ -30,15 +32,15 @@ const Update = () => {
     } 
     const handleUpdate=async (e)=>{
       e.preventDefault();
-      console.log("id...45",createId )
-      await setDoc(doc(db, "creates", createId ), {
+      console.log("id...45", createId)
+      await setDoc(doc(db, "creates", createId),{
         tittle:tittle,
         blog:blog,
         image:image,
         writername:writername,
-      })
+      });
       navigate("/read/");
-   }
+   };
   return (
     <>
     <div className='container mt-4'>
@@ -53,19 +55,19 @@ const Update = () => {
         </div>
         <div className="mb-3 ms-5 me-5">
         <textarea type="text" 
-        value={image} 
-        onChange={(e) => setImage(e.target.value)}
+        value={blog} 
+        onChange={(e) => setBlog(e.target.value)}
         className="form-control pt-2 fs-5" rows="4" id="comment" placeholder="Blog" name="text"></textarea>
         </div>
         <div className="mb-3 ms-5 me-5">
         <input type="text" 
-        value={blog} 
-        onChange={(e) => setWritername(e.target.value)} 
+        value={image} 
+        onChange={(e) => setImage(e.target.value)} 
         className="form-control pt-2 fs-5" id="Name" placeholder="ImageUrl" name="Name" required/>
         </div>
         <div className="mb-3 ms-5 me-5">
         <input type="text" 
-        value={blog} 
+        value={writername} 
         onChange={(e) => setWritername(e.target.value)} 
         className="form-control pt-2 fs-5" id="Name" placeholder="WriterName" name="Name" required/>
         </div>

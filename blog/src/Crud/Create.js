@@ -65,7 +65,7 @@ const Create = () => {
         <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="mb-3 ms-5 me-5">
-        <textarea className="form-control pt-2 fs-5" value={blog} onChange={(e) => setBlog(e.target.value)}   rows="4" id="comment" placeholder="Blog" name="text" required/>
+        <textarea className="form-control pt-2 fs-5" value={blog} onChange={(e) => setBlog(e.target.value)}   rows="3" id="comment" placeholder="Blog" name="text" required/>
         <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="mb-3 ms-5 me-5">
