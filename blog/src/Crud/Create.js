@@ -49,7 +49,8 @@ const Create = () => {
 
   return (
     <>
-    <div className='container mt-3'>
+    <div className='mask101'>
+    <div className='container'>
     <div className='d-flex justify-content-between'>
     <div className='text252 col-sm-10 fs-1'>Create Blog</div>
     <div className='text241 col-sm-2 fs-1'>
@@ -77,6 +78,7 @@ const Create = () => {
         <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <button onClick={SubmitBlog} className="button7 bg-primary border-0 mt-3">Blog Stored</button>
+        </div>
         </div>
         </div>
     </>
