@@ -12,7 +12,7 @@ const App =()=>{
                 <Route exact path="/" element={<Create/>}/>
                 <Route exact path="/read" element={<Read/>}/>
                 <Route exact path="/create" element={<Create/>}/>
-                <Route exact path="/update" element={<Update/>}/> 
+                <Route exact path="/update/:id" element={<Update/>}/> 
             </Routes>
          </BrowserRouter> 
         </>

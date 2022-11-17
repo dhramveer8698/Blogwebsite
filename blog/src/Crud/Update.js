@@ -16,7 +16,7 @@ const Update = () => {
 
      useEffect(()=>{
       loadData();
-     },[createId ]);
+     },[]);
      const loadData=async ()=>{
      const docRef = doc(db, "creates", createId );
     try {
