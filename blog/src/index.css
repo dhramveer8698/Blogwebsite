@@ -171,6 +171,63 @@ body{
     background-size: cover;
     height:625px;
 }
+/*registration*/
+.gradient-custom-3 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+    .text257{
+        background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        height:625px;
+    }
+    .card{
+        border-radius: 15px;
+    }
+    /*login*/
+    .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+.text258{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+.text259{
+    background-image: url("https://img.freepik.com/premium-photo/waterfall-landscape-plitvice-lakes-croatia_31965-5308.jpg?w=2000");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height:625px;
+}
+.text260{
+    color: white;
+    text-decoration: none;
+    font-size:18px;
+}
+.text260:hover{
+    color:red;
+}
+    
 
 
 
