@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import {db} from '../firebase'
 import {collection,getDocs} from 'firebase/firestore';
+import { Link} from 'react-router-dom';
+import { doc, deleteDoc,} from "firebase/firestore";
 
 
 
-
-const Read = () => {
+const Admin = () => {
     const[creates,setCreates]=useState([]);
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
@@ -25,9 +26,21 @@ const Read = () => {
               });
               setCreates(arr);
           } 
+          const handledelete=async (e,id)=>{
+            e.preventDefault();
+            alert("You want to delete ??")
+            console.log("id...45",id)
+            await deleteDoc(doc(db, "creates",id));
+            fetchData();
+         }
+        
   return (
     <>
-    {creates.length===0 ? (<><p className='text256'>No Blogs Fond</p>
+    {creates.length===0 ? (<><p className='text256'>No Blogs Fond <span className='ms-3'> <Link to="/create">
+    <button
+     type='button' 
+     className='btn bg-primary text-white ms-3'>Create Data</button>
+    </Link></span></p>
     </>
     ):(creates.map
     ((create)=><div className='blog-cont' key={create.id}>
@@ -43,10 +56,26 @@ const Read = () => {
       <p>Posted on-{date}</p>
       <p className='ms-2'>Posted by-{create.writername}</p>
      </div>
+     <div className='section4'>
+     <Link to={`/update/${create.id}`}>
+          <button type="button" className="btn bg-success text-white">Edit</button>
+     </Link>
+     <button 
+            type="button" 
+            class="btn bg-danger text-white ms-3"
+            onClick={(e)=>handledelete(e,create.id)} 
+            >Delete</button>
+    <Link to="/create">
+    <button
+     type='button' 
+     className='btn bg-primary text-white ms-3'>Create Data</button>
+    </Link>
+     </div>
     </div> 
     ))}
     </>
   )
 }
 
-export default Read
+export default Admin;
+

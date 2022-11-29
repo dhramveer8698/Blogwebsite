@@ -5,6 +5,7 @@ import Read from './Crud/Read';
 import Update from './Crud/Update';
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import Admin from "./Crud/Admin";
 
 const App =()=>{
     return(
@@ -16,6 +17,7 @@ const App =()=>{
                 <Route exact path="/login" element={<Login/>}/>
                 <Route exact path="/create" element={<Create/>}/>
                 <Route exact path="/read" element={<Read/>}/>
+                <Route exact path="/admin" element={<Admin/>}/>
                 <Route exact path="/create" element={<Create/>}/>
                 <Route exact path="/update/:id" element={<Update/>}/> 
             </Routes>

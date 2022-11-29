@@ -39,7 +39,7 @@ const Update = () => {
         image:image,
         writername:writername,
       });
-      navigate("/read/");
+      navigate("/admin/");
    };
   return (
     <>
@@ -71,12 +71,12 @@ const Update = () => {
         onChange={(e) => setWritername(e.target.value)} 
         className="form-control pt-2 fs-5" id="Name" placeholder="WriterName" name="Name" required/>
         </div>
-        <Link to="/read">
+        <Link to="/admin">
         <button 
         onClick={handleUpdate} 
         className="button7 mt-3 bg-primary border-0">Update</button>
         </Link>
-        <Link to="/read">
+        <Link to="/create">
         <button className="button6 mt-3">Back</button>
         </Link>
         </div>

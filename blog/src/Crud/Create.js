@@ -38,7 +38,7 @@ const Create = () => {
             setWritername("")
             setTittle("")
             setImage("")
-            history("/read");
+            history("/admin");
           });
           console.log("abcd",abcd)
         }}catch (err) {
